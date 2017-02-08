@@ -1,5 +1,5 @@
 {
-  "name": "yproximite/YproxApiClientBundle",
+  "name": "yproximite/yprox-api-client-bundle",
   "type": "symfony-bundle",
   "description": "Integration of yProx API client library for Symfony",
   "license": "MIT",
