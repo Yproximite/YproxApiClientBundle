@@ -1,0 +1,36 @@
+{
+  "name": "yproximite/YproxApiClientBundle",
+  "type": "symfony-bundle",
+  "description": "Integration of yProx API client library for Symfony",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nikita Sviridenko",
+      "email": "mail.sviridenko@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:Yproximite/Symfony2-coding-standard"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "symfony/framework-bundle": "^2.8 || ^3.0",
+    "yproximite/yprox-api-client": "^0.2.3"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^3.2",
+    "m6web/Symfony2-coding-standard": "dev-master",
+    "m6web/coke": "^2.1"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yproximite\\Bundle\\YproxApiClientBundle\\": "src"
+    }
+  }
+}
