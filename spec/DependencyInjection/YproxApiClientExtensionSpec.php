@@ -45,6 +45,7 @@ class YproxApiClientExtensionSpec extends ObjectBehavior
 
         $clientRef  = new Reference('yprox_api_client.client.default');
         $aggregator = new Definition(ServiceAggregator::class, [$clientRef]);
+        $aggregator->setPublic(true);
 
         $container->setDefinition('yprox_api_client.service_aggregator.default', $aggregator)->shouldBeCalled();
 
@@ -56,6 +57,7 @@ class YproxApiClientExtensionSpec extends ObjectBehavior
 
         $clientRef  = new Reference('yprox_api_client.client.custom');
         $aggregator = new Definition(ServiceAggregator::class, [$clientRef]);
+        $aggregator->setPublic(true);
 
         $container->setDefinition('yprox_api_client.service_aggregator.custom', $aggregator)->shouldBeCalled();
 
