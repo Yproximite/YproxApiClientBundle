@@ -69,6 +69,7 @@ class YproxApiClientExtension extends Extension
     {
         $clientRef  = new Reference(sprintf('yprox_api_client.client.%s', $name));
         $aggregator = new Definition(ServiceAggregator::class, [$clientRef]);
+        $aggregator->setPublic(true);
 
         $this->container->setDefinition(sprintf('yprox_api_client.service_aggregator.%s', $name), $aggregator);
     }
