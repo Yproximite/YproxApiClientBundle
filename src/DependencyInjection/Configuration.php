@@ -16,9 +16,14 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('yprox_api_client');
 
-        $rootNode = $treeBuilder->root('ypox_api_client');
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode(); 
+        } else {
+            $rootNode = $treeBuilder->root('yprox_api_client'); 
+        }
+
         $rootNode
             ->children()
                 ->scalarNode('http_client')
