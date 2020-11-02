@@ -1,20 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yproximite\Bundle\YproxApiClientBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
-use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-
 use Yproximite\Api\Client\Client;
 use Yproximite\Api\Service\ServiceAggregator;
 
-/**
- * Class YproxApiClientExtension
- */
 class YproxApiClientExtension extends Extension
 {
     /**
@@ -25,7 +22,7 @@ class YproxApiClientExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $this->container = $container;
 
@@ -42,10 +39,9 @@ class YproxApiClientExtension extends Extension
     }
 
     /**
-     * @param string $name
-     * @param array  $config
+     * @param array<string, mixed> $config
      */
-    private function addClient(string $name, array $config)
+    private function addClient(string $name, array $config): void
     {
         $arguments = [
             new Reference('yprox_api_client.http_client'),
@@ -62,10 +58,7 @@ class YproxApiClientExtension extends Extension
         $this->container->setDefinition(sprintf('yprox_api_client.client.%s', $name), $client);
     }
 
-    /**
-     * @param string $name
-     */
-    private function addServiceAggregator(string $name)
+    private function addServiceAggregator(string $name): void
     {
         $clientRef  = new Reference(sprintf('yprox_api_client.client.%s', $name));
         $aggregator = new Definition(ServiceAggregator::class, [$clientRef]);
