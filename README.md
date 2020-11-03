@@ -32,7 +32,7 @@ Here is the configuration reference:
 
 ```yaml
 # app/config/config.yml
-ypox_api_client:
+yprox_api_client:
 
     # Identifier of the service that represents "Http\Client\HttpClient"
     http_client: httplug.client.guzzle6

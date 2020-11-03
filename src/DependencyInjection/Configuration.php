@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Yproximite\Bundle\YproxApiClientBundle\DependencyInjection;
@@ -16,9 +17,15 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('yprox_api_client');
 
-        $rootNode = $treeBuilder->root('ypox_api_client');
+        // @phpstan-ignore-next-line
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('yprox_api_client'); // @phpstan-ignore-line
+        }
+
         $rootNode
             ->children()
                 ->scalarNode('http_client')

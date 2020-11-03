@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Yproximite\\\\Bundle\\\\YproxApiClientBundle\\\\DependencyInjection\\\\YproxApiClientExtension\\:\\:load\\(\\) has parameter \\$configs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/DependencyInjection/YproxApiClientExtension.php
+
